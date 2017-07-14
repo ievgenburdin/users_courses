@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>
+        My test -
+        {% block title_block %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="{% url 'users' %}">Users</a></li>
+            <li><a href="{% url 'courses' %}">Courses</a></li>
+        </ul>
+    </div>
+    <div>
+        {% block body_block %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

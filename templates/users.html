@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title_block%}
+    {{ "Users" }}
+{% endblock %}
+
+{% block body_block %}
+    <div class="container">
+        <div class="control">
+            <a href="{% url 'create_user' %}">Create user</a>
+            <form class="search" method="get">
+                <input type="text">
+                <input type="submit" value="Search">
+
+            </form>
+
+        </div>
+
+    </div>
+    <h2>Users</h2>
+{% endblock %}
