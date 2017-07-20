@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from users_courses_test_app import views
+from django.contrib import admin
 
 urlpatterns = [
+    url(r'^admin/', admin.site.urls),
     url(r'^$', views.root, name='root'),
     url(r'^users/$', views.users, name='users'),
     url(r'^courses/$', views.courses, name='courses'),
