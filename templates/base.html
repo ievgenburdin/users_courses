@@ -9,14 +9,17 @@
         {% block title_block %}
         {% endblock %}
     </title>
+    <script src="{% static "/static/user_course_app/javascript/script.js" %}"></script>
+    <link rel="stylesheet" href="{% static "/static/user_course_app/style/style.css" %}">
 </head>
 <body>
-    <div class="header">
-        <ul>
-            <li><a href="{% url 'users' %}">Users</a></li>
-            <li><a href="{% url 'courses' %}">Courses</a></li>
-        </ul>
-    </div>
+	<header>
+		<a href=""><h1 class="header" id="header-logo">My Test</h1></a>
+        <ul class="header" id="header-menu">
+			<li class="header"><a id="header-menu-item" href="{% url 'users' %}">Users</a></li>
+			<li class="header"><a id="header-menu-item" href="{% url 'courses' %}">Courses</a></li>
+		</ul>
+    </header>
     <div>
         {% block body_block %}
 

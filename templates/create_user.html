@@ -6,5 +6,24 @@
 {% endblock %}
 
 {% block body_block %}
-    <h2>Create user</h2>
+    <div class="content">
+        <input class="back-button" type="button" name="back" href="" value=""
+               onclick="javascript:history.back();">
+        <form action="" method="post" class="user-form">
+            {% csrf_token %}
+            <label><h1>CREATE USER</h1></label>
+            <label>Name</label>
+            <input type="text" name="name" placeholder="" class="input">
+            <label>Email</label>
+            <input type="text" name="email" placeholder="" class="input">
+            <label>Status</label>
+            <select name="status" class="input">
+                <option value="0">Inactive</option>
+                <option value="1">Active</option>
+            </select>
+            <div class="user-form-submit">
+                <input type="submit" name="" value="CREATE" class="submit">
+            </div>
+        </form>
+    </div>
 {% endblock %}

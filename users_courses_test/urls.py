@@ -17,13 +17,16 @@ Including another URLconf
 from django.conf.urls import url
 from users_courses_test_app import views
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.root, name='root'),
     url(r'^users/$', views.users, name='users'),
+    url(r'^users/get_users/$', views.get_users, name='get_users'),
     url(r'^courses/$', views.courses, name='courses'),
     url(r'^users/create_user/$', views.create_user, name='create_user'),
     url(r'^users/change_user/$', views.change_user, name='change_user'),
     url(r'^search/$', views.search, name='search'),
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -6,17 +6,56 @@
 {% endblock %}
 
 {% block body_block %}
-    <div class="container">
-        <div class="control">
-            <a href="{% url 'create_user' %}">Create user</a>
-            <form class="search" method="get">
-                <input type="text">
-                <input type="submit" value="Search">
-
-            </form>
-
-        </div>
-
+    <div class="content">
+		<form action="" method="get" class="content-header">
+            <input id="add-user-btn" type="button" onclick=add_user_page()>
+            <div class="search-form">
+                <input type="search" name="name" id="name" placeholder="search" class="input">
+	    	    <input type="submit" name="" value="" class="submit">
+            </div>
+            <div class="select-qty-users">
+                <select name="qty" id="qty">
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+        </form>
+            <table>
+                <tr>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>status</th>
+                    <th class="user-control">action</th>
+                </tr>
+                {% if users_data %}
+                    {% for user in users_data %}
+                        <tr>
+                            <td>{{ user.user_name }}</td>
+                            <td>{{ user.user_email }}</td>
+                            <td>{{ user.user_status }}</td>
+                            <td class="user-control">
+                                <input class="table-button-edit" type="button" name="" href="">
+                                <input class="table-button-delete" type="button" name="" href="">
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <strong>No users! :( </strong>
+                {% endif %}
+            </table>
+            <div class ="pagination">
+                {% if users_data.has_previous %}
+                    <a type="button" href="?page={{ users_data.previous_page_number }}"><</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ users_data.number }} of {{ users_data.paginator.num_pages }}.
+                </span>
+                {% if users_data.has_next %}
+                    <a href="?page={{ users_data.next_page_number }}">next</a>
+                {% endif %}
+            </div>
     </div>
-    <h2>Users</h2>
+
 {% endblock %}
