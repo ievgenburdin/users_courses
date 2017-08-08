@@ -13,11 +13,11 @@
             {% csrf_token %}
             <label><h1>CREATE USER</h1></label>
             <label>Name</label>
-            <input type="text" name="name" placeholder="" class="input">
+            <input type="text" name="user_name" placeholder="" class="input">
             <label>Email</label>
-            <input type="text" name="email" placeholder="" class="input">
+            <input type="text" name="user_email" placeholder="" class="input">
             <label>Status</label>
-            <select name="status" class="input">
+            <select name="user_status" class="input">
                 <option value="0">Inactive</option>
                 <option value="1">Active</option>
             </select>

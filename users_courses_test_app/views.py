@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from users_courses_test_app.models import Users, Courses
 from users_courses_test_app.forms import UserForm
 
@@ -40,7 +40,9 @@ def courses(request):
 def create_user(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
-        print(form.name, form.email, form.status)
+        if form.is_valid():
+            form.save(commit=True)
+            return HttpResponseRedirect('/users/')# TEMP REDIRECT
     elif request.method == "GET":
         return render(request, "create_user.html")
 

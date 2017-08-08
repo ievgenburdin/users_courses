@@ -28,7 +28,6 @@ class Users(models.Model):
         return self.user_name
 
 class UserCourse(models.Model):
-    user_course_id = models.AutoField(primary_key=True)
     user = models.ForeignKey('Users', models.ManyToOneRel)
     course = models.ForeignKey('Courses', models.ManyToOneRel)
 
